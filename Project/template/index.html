@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Consumption Prediction</title>
+</head>
+<body>
+    <h1>Electricity Consumption Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="user_input">Enter Consumption:</label>
+        <input type="number" name="user_input" required>
+        <button type="submit">Predict</button>
+    </form>
+    
+    {% if lstm_prediction %}
+        <h2>LSTM Prediction:</h2>
+        <p>{{ lstm_prediction }}</p>
+    {% endif %}
+
+    {% if rf_prediction %}
+        <h2>Random Forest Prediction:</h2>
+        <p>{{ rf_prediction }}</p>
+    {% endif %}
+
+    {% if svr_prediction %}
+        <h2>SVR Prediction:</h2>
+        <p>{{ svr_prediction }}</p>
+    {% endif %}
+</body>
+</html>
